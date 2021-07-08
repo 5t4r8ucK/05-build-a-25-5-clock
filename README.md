@@ -1,70 +1,98 @@
-# Getting Started with Create React App
+# Build a 25 + 5 Clock
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+https://www.freecodecamp.org/learn/front-end-libraries/front-end-libraries-projects/build-a-25--5-clock
+## Objective
 
-## Available Scripts
+Build a [CodePen.io](https://codepen.io/) app that is functionally similar to this: https://codepen.io/freeCodeCamp/full/wgGVVX.
 
-In the project directory, you can run:
+Fulfill the below [user stories](https://en.wikipedia.org/wiki/User_story) and get all of the tests to pass. Give it your own personal style.
 
-### `yarn start`
+You can use any mix of HTML, JavaScript, CSS, Bootstrap, SASS, React, Redux, and jQuery to complete this project. You should use a frontend framework (like React for example) because this section is about learning frontend frameworks. Additional technologies not listed above are not recommended and using them is at your own risk. We are looking at supporting other frontend frameworks like Angular and Vue, but they are not currently supported. We will accept and try to fix all issue reports that use the suggested technology stack for this project. Happy coding!
+### User Story #1:
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+I can see an element with `id="break-label"` that contains a string (e.g. "Break Length").
+### User Story #2:
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+I can see an element with `id="session-label"` that contains a string (e.g. "Session Length").
+### User Story #3:
 
-### `yarn test`
+I can see two clickable elements with corresponding IDs: `id="break-decrement"` and `id="session-decrement"`.
+### User Story #4:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+I can see two clickable elements with corresponding IDs: `id="break-increment"` and `id="session-increment"`.
+### User Story #5:
 
-### `yarn build`
+I can see an element with a corresponding `id="break-length"`, which by default (on load) displays a value of `5`.
+### User Story #6:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+I can see an element with a corresponding `id="session-length"`, which by default displays a value of `25`.
+### User Story #7:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+I can see an element with a corresponding `id="timer-label"`, that contains a string indicating a session is initialized (e.g. "Session").
+### User Story #8:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+I can see an element with corresponding `id="time-left"`. NOTE: Paused or running, the value in this field should always be displayed in `mm:ss` format (i.e. 25:00).
+### User Story #9:
 
-### `yarn eject`
+I can see a clickable element with a corresponding `id="start_stop"`.
+### User Story #10:
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+I can see a clickable element with a corresponding `id="reset"`.
+### User Story #11:
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+When I click the element with the id of `reset`, any running timer should be stopped, the value within `id="break-length"` should return to `5`, the value within `id="session-length"` should return to `25`, and the element with `id="time-left"` should reset to its default state.
+### User Story #12:
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+When I click the element with the id of `break-decrement`, the value within `id="break-length"` decrements by a value of `1`, and I can see the updated value.
+### User Story #13:
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+When I click the element with the id of `break-increment`, the value within `id="break-length"` increments by a value of `1`, and I can see the updated value.
+### User Story #14:
 
-## Learn More
+When I click the element with the id of `session-decrement`, the value within `id="session-length"` decrements by a value of `1`, and I can see the updated value.
+### User Story #15:
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+When I click the element with the id of `session-increment`, the value within `id="session-length"` increments by a value of `1`, and I can see the updated value.
+### User Story #16:
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+I should not be able to set a session or break length to <= 0.
+### User Story #17:
 
-### Code Splitting
+I should not be able to set a session or break length to > 60.
+### User Story #18:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+When I first click the element with `id="start_stop"`, the timer should begin running from the value currently displayed in `id="session-length"`, even if the value has been incremented or decremented from the original value of `25`.
+### User Story #19:
 
-### Analyzing the Bundle Size
+If the timer is running, the element with the id of time-left should display the remaining time in `mm:ss` format (decrementing by a value of `1` and updating the display every 1000ms).
+### User Story #20:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+If the timer is running and I click the element with `id="start_stop"`, the countdown should pause.
+### User Story #21:
 
-### Making a Progressive Web App
+If the timer is paused and I click the element with `id="start_stop"`, the countdown should resume running from the point at which it was paused.
+### User Story #22:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+When a session countdown reaches zero (NOTE: timer MUST reach 00:00), and a new countdown begins, the element with the id of `timer-label` should display a string indicating a break has begun.
+### User Story #23:
 
-### Advanced Configuration
+When a session countdown reaches zero (NOTE: timer MUST reach 00:00), a new break countdown should begin, counting down from the value currently displayed in the `id="break-length"` element.
+### User Story #24:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+When a break countdown reaches zero (NOTE: timer MUST reach 00:00), and a new countdown begins, the element with the id of `timer-label` should display a string indicating a session has begun.
+### User Story #25:
 
-### Deployment
+When a break countdown reaches zero (NOTE: timer MUST reach 00:00), a new session countdown should begin, counting down from the value currently displayed in the `id="session-length"` element.
+### User Story #26:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+When a countdown reaches zero (NOTE: timer MUST reach 00:00), a sound indicating that time is up should play. This should utilize an HTML5 `audio` tag and have a corresponding `id="beep"`.
+### User Story #27:
 
-### `yarn build` fails to minify
+The audio element with `id="beep"` must be 1 second or longer.
+### User Story #28:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+The audio element with id of `beep` must stop playing and be rewound to the beginning when the element with the id of `reset` is clicked.
+
+You can build your project by using [this CodePen template](https://codepen.io/pen?template=MJjpwO) and clicking `Save` to create your own pen. Or you can use this CDN link to run the tests in any environment you like: `https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js`
+
+Once you're done, submit the URL to your working project with all its tests passing.

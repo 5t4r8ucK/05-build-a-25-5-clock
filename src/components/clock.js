@@ -1,7 +1,7 @@
 import styled, { css } from 'styled-components';
+import Controls from './controls.js';
 import Title from './title.js';
 import Timer from './timer.js';
-import Controls from './controls.js';
 
 const ClockContainer = styled.article`
   // Display and Box Model

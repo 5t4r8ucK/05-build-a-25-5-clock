@@ -1,4 +1,6 @@
 import styled, { css } from 'styled-components';
+import Label from './label.js';
+import Number from './number.js';
 
 const TimerContainer = styled.section`
   // Display and Box Model
@@ -9,12 +11,12 @@ const Timer = () => {
 
   return (
     <TimerContainer id='timer'>
-      <div id='timer-label'>
+      <Label id='timer-label'>
         Session
-      </div>
-      <div id='time-left'>
+      </Label>
+      <Number id='time-left'>
         25:00
-      </div>
+      </Number>
     </TimerContainer>
   );
 };

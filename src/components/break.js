@@ -12,13 +12,13 @@ const Break = () => {
         Break Length
       </Label>
       <Button id='break-decrement'>
-        decrease
+        -
       </Button>
       <Length id="break-length">
         5
       </Length>
       <Button id='break-increment'>
-        increase
+        +
       </Button>
     </ControlsContainer>
   );

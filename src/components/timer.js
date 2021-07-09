@@ -2,7 +2,7 @@ import styled, { css } from 'styled-components';
 import Label from './label.js';
 import Number from './number.js';
 
-const TimerContainer = styled.section`
+const TimerWrapper = styled.section`
   // Display and Box Model
   font-size: 2em;
 `;
@@ -10,14 +10,13 @@ const TimerContainer = styled.section`
 const Timer = () => {
 
   return (
-    <TimerContainer id='timer'>
+    <TimerWrapper id='timer'>
       <Label id='timer-label'>
         Session
       </Label>
       <Number id='time-left'>
         25:00
-      </Number>
-    </TimerContainer>
+    </TimerWrapper>
   );
 };
 

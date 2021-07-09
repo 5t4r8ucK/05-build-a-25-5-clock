@@ -3,7 +3,7 @@ import Break from './break.js';
 import Playback from './playback.js';
 import Session from './session.js';
 
-const ControlsContainer = styled.section`
+const ControlsWrapper = styled.section`
   // Display and Box Model
   display: grid;
   grid-template-areas:
@@ -14,11 +14,11 @@ const ControlsContainer = styled.section`
 const Controls = () => {
 
   return (
-    <ControlsContainer id='controls'>
+    <ControlsWrapper id='controls'>
       <Break />
       <Session />
       <Playback />
-    </ControlsContainer>
+    </ControlsWrapper>
   );
 };
 

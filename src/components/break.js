@@ -1,6 +1,7 @@
 import styled, { css } from 'styled-components';
 import Button from './button.js';
 import Label from './label.js';
+import Length from './length.js';
 import ControlsContainer from './controlsContainer';
 
 const Break = () => {
@@ -13,9 +14,9 @@ const Break = () => {
       <Button id='break-decrement'>
         decrease
       </Button>
-      <Number id="break-length">
+      <Length id="break-length">
         5
-      </Number>
+      </Length>
       <Button id='break-increment'>
         increase
       </Button>

@@ -1,6 +1,6 @@
 import styled, { css } from 'styled-components';
 import Label from './label.js';
-import Number from './number.js';
+import Length from './length.js';
 
 const TimerWrapper = styled.section`
   // Display and Box Model
@@ -14,8 +14,9 @@ const Timer = () => {
       <Label id='timer-label'>
         Session
       </Label>
-      <Number id='time-left'>
+      <Length id='time-left'>
         25:00
+      </Length>
     </TimerWrapper>
   );
 };

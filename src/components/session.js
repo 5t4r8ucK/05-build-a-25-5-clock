@@ -13,9 +13,9 @@ const Session = () => {
       <Button id='session-decrement'>
         decrease
       </Button>
-      <Number id="session-length">
+      <Length id="session-length">
         25
-      </Number>
+      </Length>
       <Button id='session-increment'>
         increase
       </Button>

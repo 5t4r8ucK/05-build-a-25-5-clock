@@ -4,7 +4,8 @@ import Length from './length.js';
 
 const TimerWrapper = styled.section`
   // Display and Box Model
-  font-size: 2em;
+  font-family: 'Ruda', sans-serif;
+  text-align: center;
 `;
 
 const Timer = () => {

@@ -1,16 +1,12 @@
 import styled, { css } from 'styled-components';
 import Button from './button.js';
 import Label from './label.js';
-import Number from './number.js';
-
-const SessionContainer = styled.section`
-  // Display and Box Model
-`;
+import ControlsContainer from './controlsContainer';
 
 const Session = () => {
 
   return (
-    <SessionContainer id='session-controls'>
+    <ControlsContainer id='session-controls'>
       <Label id='session-label'>
         Session Length
       </Label>
@@ -23,7 +19,7 @@ const Session = () => {
       <Button id='session-increment'>
         increase
       </Button>
-    </SessionContainer>
+    </ControlsContainer>
   );
 };
 

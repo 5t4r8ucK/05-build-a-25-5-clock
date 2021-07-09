@@ -1,21 +1,18 @@
 import styled, { css } from 'styled-components';
 import Button from './button.js';
-
-const PlaybackContainer = styled.section`
-  // Display and Box Model
-`;
+import ControlsContainer from './controlsContainer';
 
 const Playback = () => {
 
   return (
-    <PlaybackContainer id='playback'>
+    <ControlsContainer id='playback-controls'>
       <Button id='start_stop'>
         Start/Stop
       </Button>
       <Button id='reset'>
         Reset
       </Button>
-    </PlaybackContainer>
+    </ControlsContainer>
   );
 };
 

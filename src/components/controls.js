@@ -8,7 +8,8 @@ const ControlsWrapper = styled.section`
   display: grid;
   grid-template-areas:
     'break-controls session-controls'
-    'timer-controls timer-controls';
+    'playback-controls playback-controls';
+  grid-template-columns: 1fr 1fr;
 `;
 
 const Controls = () => {

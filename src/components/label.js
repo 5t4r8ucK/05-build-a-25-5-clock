@@ -1,18 +1,13 @@
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
+import * as variables from './variables.js';
+import StyledHeader from './styledHeader.js';
 
-const Label = styled.div`
+const Label = styled(StyledHeader)`
   // Typography
-  text-align: center;
-
-  &#break-label{
-    // Display and Box Model
-    grid-area: label;
-  }
-
-  &#session-label {
-    // Display and Box Model
-    grid-area: label;
-  }
+  font-size: ${variables.fonts.sizes.h5};
+  margin: 3rem 0 1.38rem;
+  // Other
+  opacity: 0.5;
 `;
 
 export default Label;

@@ -1,19 +1,16 @@
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
+import * as variables from './variables.js';
 
 const Length = styled.div`
+  // Display and Box Model
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   // Typography
+  font-family: ${variables.fonts.stack.serif};
+  line-height: 1.3;
   text-align: center;
-
-  &#break-length {
-    // Display and Box Model
-    grid-area: length;
-  }
-
-  &#session-length {
-    // Display and Box Model
-    grid-area: length;
-  }
-
+  text-shadow: 0.03em 0.03em ${variables.colors.color.black.b_10};
 `;
 
 export default Length;

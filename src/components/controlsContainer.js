@@ -1,4 +1,4 @@
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 
 const ControlsContainer = styled.div`
   // Display and Box Model
@@ -7,21 +7,6 @@ const ControlsContainer = styled.div`
     'label label label'
     'decrement length increment';
   flex-direction: row;
-
-  &#session-controls {
-    // Display and Box Model
-    grid-area: session-controls;
-  }
-
-  &#break-controls {
-    // Display and Box Model
-    grid-area: break-controls;
-  }
-
-  &#playback-controls {
-    // Display and Box Model
-    grid-area: playback-controls;
-  }
 `;
 
 export default ControlsContainer;

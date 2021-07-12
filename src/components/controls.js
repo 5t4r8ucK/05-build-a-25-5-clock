@@ -1,25 +1,27 @@
-import styled, { css } from 'styled-components';
+import * as variables from './variables.js';
 import Break from './break.js';
 import Playback from './playback.js';
 import Session from './session.js';
 
-const ControlsWrapper = styled.section`
-  // Display and Box Model
-  display: grid;
-  grid-template-areas:
-    'break-controls session-controls'
-    'playback-controls playback-controls';
-  grid-template-columns: 1fr 1fr;
+const ControlsSection = styled.section`
+  &#controls {
+    // Display and Box Model
+    display: grid;
+    gap: ${variables.sizes.gapWidth};
+    grid-template-areas:
+      'break-controls session-controls'
+      'playback-controls playback-controls';
+    grid-template-columns: auto auto;
+  }
 `;
 
 const Controls = () => {
-
   return (
-    <ControlsWrapper id='controls'>
+    <ControlsSection id='controls'>
       <Break />
       <Session />
       <Playback />
-    </ControlsWrapper>
+    </ControlsSection>
   );
 };
 

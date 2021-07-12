@@ -1,24 +1,34 @@
-import styled, { css } from 'styled-components';
+import * as variables from './variables.js';
 import Label from './label.js';
 import Length from './length.js';
 
-const TimerWrapper = styled.section`
-  // Display and Box Model
-  font-family: 'Ruda', sans-serif;
-  text-align: center;
+const TimerSection = styled.section`
+  &#timer {
+    // Display and Box Model
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+  }
 `;
 
-const Timer = () => {
+const TimerLength = styled(Length)`
+  &#time-left {
+    //Typography
+    font-size: ${variables.fonts.sizes.h1};
+  }
+`
 
+const Timer = () => {
   return (
-    <TimerWrapper id='timer'>
+    <TimerSection id='timer'>
       <Label id='timer-label'>
-        Session
+        Currently in Session
       </Label>
-      <Length id='time-left'>
+      <TimerLength id='time-left'>
         25:00
-      </Length>
-    </TimerWrapper>
+      </TimerLength>
+    </TimerSection>
   );
 };
 

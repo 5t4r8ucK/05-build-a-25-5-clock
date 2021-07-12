@@ -1,3 +1,4 @@
+import styled from 'styled-components';
 import * as variables from './variables.js';
 import Break from './break.js';
 import Playback from './playback.js';

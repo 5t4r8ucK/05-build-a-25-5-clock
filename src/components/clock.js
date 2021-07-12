@@ -1,4 +1,4 @@
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 import Controls from './controls.js';
 import Title from './title.js';
 import Timer from './timer.js';

@@ -1,3 +1,4 @@
+import styled from 'styled-components';
 import * as variables from './variables.js';
 import { SquareButton } from './styledButton.js';
 import Label from './label.js';

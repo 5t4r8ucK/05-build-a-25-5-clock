@@ -1,3 +1,4 @@
+import styled from 'styled-components';
 import * as variables from './variables.js';
 import StyledButton from './styledButton.js';
 import ControlsContainer from './controlsContainer';

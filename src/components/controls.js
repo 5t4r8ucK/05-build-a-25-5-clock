@@ -18,7 +18,7 @@ const ControlsSection = styled(StyledSection)`
   }
 `;
 
-const Controls = ({initialClockState, setTimerLabel, setTimerLength, setTimerType}) => {
+const Controls = ({initialClockState, setTimerLength, setTimerType}) => {
   const initialControlsState = {
     break: {
       length: 5,
@@ -48,7 +48,6 @@ const Controls = ({initialClockState, setTimerLabel, setTimerLength, setTimerTyp
       <Playback
         initialClockState = {initialClockState}
         setTimerLength = {setTimerLength}
-        setTimerLabel = {setTimerLabel}
         setTimerType = {setTimerType}
         initialControlsState = {initialControlsState}
         breakLength = {breakLength}

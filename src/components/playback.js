@@ -18,7 +18,7 @@ const PlaybackControls = styled(ControlsContainer)`
 
 let newTimer;
 
-const Playback = ({initialClockState, setTimerLabel, setTimerLength, setTimerType, initialControlsState, breakLength, setBreakLength, isTimerPaused, setIsTimerPaused, sessionLength, setSessionLength}) => {
+const Playback = ({initialClockState, setTimerLength, setTimerType, initialControlsState, breakLength, setBreakLength, isTimerPaused, setIsTimerPaused, sessionLength, setSessionLength}) => {
 
   const initialPlaybackState = {
     playbackIcon: 'fas fa-play',
@@ -49,11 +49,11 @@ const Playback = ({initialClockState, setTimerLabel, setTimerLength, setTimerTyp
           isInSession = !isInSession;
           if (isInSession) {
             duration = durationOne + 1; // reset to session timer and 1 second so that the timer starts at the full duration
-            setTimerLabel('currently in a session');
+
             setTimerType('session');
           } else {
             duration = durationTwo + 1; // reset to session timer and 1 second so that the timer starts at the full duration
-            setTimerLabel('currently on a break');
+
             setTimerType('break');
             audio.current.play();
           }
@@ -87,7 +87,6 @@ const Playback = ({initialClockState, setTimerLabel, setTimerLength, setTimerTyp
         setIsTimerPaused(initialControlsState.isTimerPaused);
         setBreakLength(initialControlsState.break.length);
         setSessionLength(initialControlsState.session.length);
-        setTimerLabel(initialClockState.timer.label);
         setTimerLength(initialClockState.timer.length);
         setTimerType(initialClockState.timer.type);
         audio.current.pause();

@@ -60,12 +60,10 @@ const Clock = () => {
   // State
   const initialClockState = {
     timer: {
-      label: 'currently in a session',
       length: '25:00',
       type: '',
     }
   }
-  const [timerLabel, setTimerLabel] = useState(initialClockState.timer.label);
   const [timerLength, setTimerLength] = useState(initialClockState.timer.length);
   const [timerType, setTimerType] = useState(initialClockState.timer.type);
 
@@ -75,12 +73,11 @@ const Clock = () => {
         Pomodoro Timer
       </Title>
       <Timer
-        timerLabel = {timerLabel}
         timerLength = {timerLength}
+        timerType = {timerType}
       />
       <Controls
         initialClockState = {initialClockState}
-        setTimerLabel = {setTimerLabel}
         setTimerLength = {setTimerLength}
         setTimerType = {setTimerType}
       />

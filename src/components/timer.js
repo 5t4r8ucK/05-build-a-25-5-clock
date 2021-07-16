@@ -2,8 +2,9 @@ import styled from 'styled-components';
 import * as variables from './variables.js';
 import Label from './label.js';
 import Length from './length.js';
+import StyledSection from './styledSection.js';
 
-const TimerSection = styled.section`
+const TimerSection = styled(StyledSection)`
   &#timer {
     // Display and Box Model
     display: flex;

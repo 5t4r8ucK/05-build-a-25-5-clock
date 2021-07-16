@@ -8,7 +8,7 @@ const Length = styled.div`
   justify-content: center;
   // Typography
   font-family: ${variables.fonts.stack.serif};
-  line-height: 1.3;
+  line-height: 1;
   text-align: center;
   text-shadow: 0.03em 0.03em ${variables.colors.color.black.b_10};
 `;

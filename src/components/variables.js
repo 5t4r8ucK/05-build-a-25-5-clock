@@ -24,13 +24,15 @@ export const colors = {
     {
       'w_100': 'rgba(255, 255, 255, 1)',
       'w_10': 'rgba(255, 255, 255, 0.1)',
+      'w_20': 'rgba(255, 255, 255, 0.2)',
+      'w_30': 'rgba(255, 255, 255, 0.3)',
     },
     'black': {
       'b_100': 'rgba(0, 0, 0, 1)',
       'b_10': 'rgba(0, 0, 0, 0.1)',
     },
     'red': 'rgba(255,0,0,1)',
-    'orange': 'rgba(255,0,0,1)',
+    'orange': 'rgba(255,59,0,1)',
     'green': 'rgba(1,213,0,1)',
     'turquoise': 'rgba(32,231,212,1)',
   },
@@ -46,5 +48,5 @@ export const sizes = {
   'hairlineWidth': '0.0625rem', // 1 px
   'borderWidth': '0.125rem', // 2 px
   'buttonBorderRadius': '0.3125rem', // 5 px
-  'column_width': '4rem', // 64 px
+  'column_width': '4.236rem', // h3 height (67.776px)
 }

@@ -45,7 +45,8 @@ const SessionLength = styled(Length)`
   }
 `
 
-const Session = () => {
+const Session = ({setTimerLength, isTimerPaused, sessionLength, setSessionLength}) => {
+
   return (
     <SessionControls id='session-controls'>
       <SessionLabel id='session-label'>
@@ -55,7 +56,7 @@ const Session = () => {
         <i className="fas fa-minus"></i>
       </SessionButton>
       <SessionLength id="session-length">
-        25
+        {sessionLength}
       </SessionLength>
       <SessionButton id='session-increment'>
         <i className="fas fa-plus"></i>

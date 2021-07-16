@@ -1,3 +1,4 @@
+import React, {useState, useRef} from 'react';
 import styled from 'styled-components';
 import * as variables from './variables.js';
 import StyledButton from './styledButton.js';
@@ -29,11 +30,16 @@ const PlaybackButton = styled(StyledButton)`
   }
 `
 
-const Playback = () => {
+const Playback = ({initialClockState, setTimerLabel, setTimerLength, setTimerType, initialControlsState, breakLength, setBreakLength, isTimerPaused, setIsTimerPaused, sessionLength, setSessionLength}) => {
+
+  const initialPlaybackState = {
+    playbackIcon: 'fas fa-play',
+  }
+  const [playbackIcon, setPlaybackIcon] = useState(initialPlaybackState.playbackIcon);
+
   return (
     <PlaybackControls id='playback-controls'>
-      <PlaybackButton id='start_stop'>
-        <i className="fas fa-play"></i>
+        <i className={playbackIcon}></i>
       </PlaybackButton>
       <PlaybackButton id='reset'>
         <i className="fas fa-redo"></i>

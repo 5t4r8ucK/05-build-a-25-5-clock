@@ -1,3 +1,4 @@
+import React, {useState} from 'react';
 import styled from 'styled-components';
 import * as variables from './variables.js';
 import Controls from './controls.js';
@@ -21,14 +22,34 @@ const ClockWrapper = styled.article`
 `;
 
 const Clock = () => {
+  // State
+  const initialClockState = {
+    timer: {
+      label: 'currently in a session',
+      length: '25:00',
+      type: '',
+    }
+  }
+  const [timerLabel, setTimerLabel] = useState(initialClockState.timer.label);
+  const [timerLength, setTimerLength] = useState(initialClockState.timer.length);
+  const [timerType, setTimerType] = useState(initialClockState.timer.type);
+
   return (
-    <ClockWrapper id='clock'>
+    <ClockArticle id='clock' className={timerType}>
       <Title id='title'>
         Pomodoro Timer
       </Title>
-      <Timer />
-      <Controls />
-    </ClockWrapper>
+      <Timer
+        timerLabel = {timerLabel}
+        timerLength = {timerLength}
+      />
+      <Controls
+        initialClockState = {initialClockState}
+        setTimerLabel = {setTimerLabel}
+        setTimerLength = {setTimerLength}
+        setTimerType = {setTimerType}
+      />
+    </ClockArticle>
   );
 };
 

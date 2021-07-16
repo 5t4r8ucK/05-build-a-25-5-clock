@@ -21,14 +21,14 @@ const TimerLength = styled(Length)`
   }
 `
 
-const Timer = () => {
+const Timer = ({timerLength, timerLabel}) => {
   return (
     <TimerSection id='timer'>
       <Label id='timer-label'>
-        Currently in Session
+        {timerLabel}
       </Label>
       <TimerLength id='time-left'>
-        25:00
+        {timerLength}
       </TimerLength>
     </TimerSection>
   );

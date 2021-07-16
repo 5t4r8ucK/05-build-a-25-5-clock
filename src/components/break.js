@@ -44,6 +44,7 @@ const BreakLength = styled(Length)`
     min-width: 2em;
   }
 `
+const Break = ({breakLength, setBreakLength, isTimerPaused}) => {
 
 const Break = () => {
   return (
@@ -55,7 +56,7 @@ const Break = () => {
         <i className="fas fa-minus"></i>
       </BreakButton>
       <BreakLength id="break-length">
-        5
+        {breakLength}
       </BreakLength>
       <BreakButton id='break-increment'>
         <i className="fas fa-plus"></i>

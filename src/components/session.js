@@ -24,35 +24,21 @@ const SessionLength = styled(Length)`
 `
 
 const Session = ({setTimerLength, isTimerPaused, sessionLength, setSessionLength}) => {
-
-  const handleClick = (action) => {
-    let seconds = 0;
-    seconds = seconds < 10 ? '0' + seconds : seconds;
-    switch (action) {
-      case 'session-increment':
-        if (isTimerPaused) {
-          if (sessionLength < 60) {
-            let minutes = sessionLength + 1;
-            minutes = minutes < 10 ? '0' + minutes : minutes;
-            setSessionLength(sessionLength + 1);
-            setTimerLength(minutes + ':' + seconds);
-          }
-        }
-        break;
-      case 'session-decrement':
-        if (isTimerPaused) {
-          if (sessionLength > 1) {
-            let minutes = sessionLength - 1;
-            minutes = minutes < 10 ? '0' + minutes : minutes;
-            setSessionLength(sessionLength - 1);
-            setTimerLength(minutes + ':' + seconds);
-          }
-        }
-        break;
-      default:
-        break;
+  const decrement = () => {
+    if (sessionLength > 1) {
+      let minutes = sessionLength - 1;
+      setSessionLength(minutes);
+      setTimerLength(minutes.toString().padStart(2, '0') + ':00');
     }
-  }
+  };
+
+  const increment = () => {
+    if (sessionLength < 60) {
+      let minutes = sessionLength + 1;
+      setSessionLength(minutes);
+      setTimerLength(minutes.toString().padStart(2, '0') + ':00');
+    }
+  };
 
   return (
     <SessionControls id='session-controls'>
@@ -61,7 +47,8 @@ const Session = ({setTimerLength, isTimerPaused, sessionLength, setSessionLength
       </Label>
       <DecrementButton
         id='session-decrement'
-        onClick={() => handleClick('session-decrement')}
+        onClick={decrement}
+        disabled={!isTimerPaused}
       >
         <i className="fas fa-minus"></i>
       </DecrementButton>
@@ -70,7 +57,8 @@ const Session = ({setTimerLength, isTimerPaused, sessionLength, setSessionLength
       </SessionLength>
       <IncrementButton
         id='session-increment'
-        onClick={() => handleClick('session-increment')}
+        onClick={increment}
+        disabled={!isTimerPaused}
       >
         <i className="fas fa-plus"></i>
       </IncrementButton>

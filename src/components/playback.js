@@ -4,6 +4,7 @@ import * as variables from './variables.js';
 import StyledButton from './styledButton.js';
 import ControlsContainer from './controlsContainer';
 import Audio from './audio';
+import {initialControlsState, initialClockState} from './constants';
 
 const PlaybackControls = styled(ControlsContainer)`
   &#playback-controls {
@@ -18,7 +19,7 @@ const PlaybackControls = styled(ControlsContainer)`
 
 let newTimer;
 
-const Playback = ({initialClockState, setTimerLength, setTimerType, initialControlsState, breakLength, setBreakLength, isTimerPaused, setIsTimerPaused, sessionLength, setSessionLength}) => {
+const Playback = ({setTimerLength, setTimerType, breakLength, setBreakLength, isTimerPaused, setIsTimerPaused, sessionLength, setSessionLength}) => {
 
   let audio = useRef(null);
 
@@ -79,10 +80,10 @@ const Playback = ({initialClockState, setTimerLength, setTimerType, initialContr
         }
         newTimer = undefined;
         setIsTimerPaused(initialControlsState.isTimerPaused);
-        setBreakLength(initialControlsState.break.length);
-        setSessionLength(initialControlsState.session.length);
-        setTimerLength(initialClockState.timer.length);
-        setTimerType(initialClockState.timer.type);
+        setBreakLength(initialControlsState.breakLength);
+        setSessionLength(initialControlsState.sessionLength);
+        setTimerLength(initialClockState.length);
+        setTimerType(initialClockState.type);
         audio.current.pause();
         audio.current.currentTime = 0;
         break;

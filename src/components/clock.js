@@ -5,6 +5,7 @@ import StyledArticle from './styledArticle';
 import Controls from './controls';
 import Title from './title';
 import Timer from './timer';
+import {initialClockState} from './constants';
 
 const ClockArticle = styled(StyledArticle)`
   &#clock {
@@ -57,15 +58,8 @@ const ClockArticle = styled(StyledArticle)`
 `;
 
 const Clock = () => {
-  // State
-  const initialClockState = {
-    timer: {
-      length: '25:00',
-      type: '',
-    }
-  }
-  const [timerLength, setTimerLength] = useState(initialClockState.timer.length);
-  const [timerType, setTimerType] = useState(initialClockState.timer.type);
+  const [timerLength, setTimerLength] = useState(initialClockState.length);
+  const [timerType, setTimerType] = useState(initialClockState.type);
 
   return (
     <ClockArticle id='clock' className={timerType}>

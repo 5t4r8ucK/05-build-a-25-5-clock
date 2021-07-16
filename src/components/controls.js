@@ -5,6 +5,7 @@ import Break from './break.js';
 import Playback from './playback.js';
 import Session from './session.js';
 import StyledSection from './styledSection.js';
+import {initialControlsState} from './constants';
 
 const ControlsSection = styled(StyledSection)`
   &#controls {
@@ -18,19 +19,11 @@ const ControlsSection = styled(StyledSection)`
   }
 `;
 
-const Controls = ({initialClockState, setTimerLength, setTimerType}) => {
-  const initialControlsState = {
-    break: {
-      length: 5,
-    },
-    session: {
-      length: 25,
-    },
-    isTimerPaused: true,
-  }
-  const [breakLength, setBreakLength] = useState(initialControlsState.break.length);
+const Controls = ({setTimerLength, setTimerType}) => {
+
+  const [breakLength, setBreakLength] = useState(initialControlsState.breakLength);
   const [isTimerPaused, setIsTimerPaused] = useState(initialControlsState.isTimerPaused);
-  const [sessionLength, setSessionLength] = useState(initialControlsState.session.length);
+  const [sessionLength, setSessionLength] = useState(initialControlsState.sessionLength);
 
   return (
     <ControlsSection id='controls'>
@@ -46,10 +39,8 @@ const Controls = ({initialClockState, setTimerLength, setTimerType}) => {
         setSessionLength = {setSessionLength}
       />
       <Playback
-        initialClockState = {initialClockState}
         setTimerLength = {setTimerLength}
         setTimerType = {setTimerType}
-        initialControlsState = {initialControlsState}
         breakLength = {breakLength}
         setBreakLength = {setBreakLength}
         isTimerPaused = {isTimerPaused}

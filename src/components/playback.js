@@ -1,4 +1,4 @@
-import React, {useState, useRef} from 'react';
+import React, {useRef} from 'react';
 import styled from 'styled-components';
 import * as variables from './variables.js';
 import StyledButton from './styledButton.js';
@@ -19,11 +19,6 @@ const PlaybackControls = styled(ControlsContainer)`
 let newTimer;
 
 const Playback = ({initialClockState, setTimerLength, setTimerType, initialControlsState, breakLength, setBreakLength, isTimerPaused, setIsTimerPaused, sessionLength, setSessionLength}) => {
-
-  const initialPlaybackState = {
-    playbackIcon: 'fas fa-play',
-  }
-  const [playbackIcon, setPlaybackIcon] = useState(initialPlaybackState.playbackIcon);
 
   let audio = useRef(null);
 
@@ -83,7 +78,6 @@ const Playback = ({initialClockState, setTimerLength, setTimerType, initialContr
           stopTimer(newTimer);
         }
         newTimer = undefined;
-        setPlaybackIcon(initialPlaybackState.playbackIcon);
         setIsTimerPaused(initialControlsState.isTimerPaused);
         setBreakLength(initialControlsState.break.length);
         setSessionLength(initialControlsState.session.length);
@@ -98,11 +92,9 @@ const Playback = ({initialClockState, setTimerLength, setTimerType, initialContr
         }
         if (isTimerPaused) {
           resumeTimer(newTimer);
-          setPlaybackIcon('fas fa-pause');
           setIsTimerPaused(false);
         } else {
           stopTimer(newTimer);
-          setPlaybackIcon('fas fa-play');
           setIsTimerPaused(true);
         }
         break;
@@ -122,7 +114,7 @@ const Playback = ({initialClockState, setTimerLength, setTimerType, initialContr
         id='start_stop'
         onClick={() => handleClick('start_stop')}
       >
-        <i className={playbackIcon}></i>
+        <i className={isTimerPaused ? 'fas fa-play' : 'fas fa-pause'}></i>
       </StyledButton>
       <StyledButton
         gridArea='reset'

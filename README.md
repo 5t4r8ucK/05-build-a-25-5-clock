@@ -96,3 +96,7 @@ The audio element with id of `beep` must stop playing and be rewound to the begi
 You can build your project by using [this CodePen template](https://codepen.io/pen?template=MJjpwO) and clicking `Save` to create your own pen. Or you can use this CDN link to run the tests in any environment you like: `https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js`
 
 Once you're done, submit the URL to your working project with all its tests passing.
+
+## Credits
+
+The alarm sounds are from [Mindful ringtones from Headspace](https://www.headspace.com/work/mindful-ringtones-and-alarms).

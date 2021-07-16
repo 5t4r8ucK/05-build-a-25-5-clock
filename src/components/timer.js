@@ -18,6 +18,7 @@ const TimerLength = styled(Length)`
   &#time-left {
     //Typography
     font-size: ${variables.fonts.sizes.h1};
+    width: 550px;
   }
 `
 

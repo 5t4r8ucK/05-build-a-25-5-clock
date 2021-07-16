@@ -4,7 +4,8 @@ import * as variables from './variables.js';
 import StyledButton from './styledButton.js';
 import ControlsContainer from './controlsContainer';
 import Audio from './audio';
-import {initialControlsState, initialClockState} from './constants';
+import { initialControlsState, initialClockState, TYPE_SESSION, TYPE_BREAK } from './constants';
+
 
 const PlaybackControls = styled(ControlsContainer)`
   &#playback-controls {
@@ -46,11 +47,11 @@ const Playback = ({setTimerLength, setTimerType, breakLength, setBreakLength, is
           if (isInSession) {
             duration = durationOne + 1; // reset to session timer and 1 second so that the timer starts at the full duration
 
-            setTimerType('session');
+            setTimerType(TYPE_SESSION);
           } else {
             duration = durationTwo + 1; // reset to session timer and 1 second so that the timer starts at the full duration
 
-            setTimerType('break');
+            setTimerType(TYPE_BREAK);
             audio.current.play();
           }
         }

@@ -1,6 +1,6 @@
 export const initialClockState = {
-    length: '25:00',
-    type: '',
+  length: '25:00',
+  type: '',
 }
 
 export const initialControlsState = {
@@ -8,3 +8,6 @@ export const initialControlsState = {
   sessionLength: 25,
   isTimerPaused: true,
 }
+
+export const TYPE_SESSION = 'session';
+export const TYPE_BREAK = 'break';

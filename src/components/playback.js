@@ -60,14 +60,14 @@ const Playback = ({initialClockState, setTimerLabel, setTimerLength, setTimerTyp
         seconds = parseInt(duration % 60, 10);
         minutes = minutes < 10 ? '0' + minutes : minutes;
         seconds = seconds < 10 ? '0' + seconds : seconds;
-        if (duration < 0) {
+        if (duration <= 0) {
           isInSession = !isInSession;
           if (isInSession) {
-            duration = durationOne; // reset to session timer
+            duration = durationOne + 1; // reset to session timer and 1 second so that the timer starts at the full duration
             setTimerLabel('currently in a session');
             setTimerType('session');
           } else {
-            duration = durationTwo; // reset to break timer
+            duration = durationTwo + 1; // reset to session timer and 1 second so that the timer starts at the full duration
             setTimerLabel('currently on a break');
             setTimerType('break');
             audio.current.play();

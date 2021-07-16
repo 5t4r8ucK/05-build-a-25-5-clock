@@ -6,6 +6,7 @@ const Label = styled(StyledHeader)`
   // Typography
   font-size: ${variables.fonts.sizes.h5};
   margin: 3rem 0 1.38rem;
+  text-transform: lowercase;
   // Other
   opacity: 0.5;
 `;

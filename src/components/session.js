@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import * as variables from './variables.js';
-import { SquareButton } from './styledButton.js';
+import { IncrementButton, DecrementButton } from './styledButton.js';
 import Label from './label.js';
 import Length from './length.js';
 import ControlsContainer from './controlsContainer';
@@ -13,29 +13,6 @@ const SessionControls = styled(ControlsContainer)`
     justify-self: left;
   }
 `;
-
-const SessionLabel = styled(Label)`
-  &#session-label {
-    // Display and Box Model
-    grid-area: label;
-  }
-`
-
-const SessionButton = styled(SquareButton)`
-  // Display and Box Model
-  align-self: center;
-
-  &#session-decrement {
-    // Display and Box Model
-    grid-area: decrement;
-    justify-self: right;
-  }
-  &#session-increment {
-    // Display and Box Model
-    grid-area: increment;
-    justify-self: left;
-  }
-`
 
 const SessionLength = styled(Length)`
   &#session-length {
@@ -79,24 +56,24 @@ const Session = ({setTimerLength, isTimerPaused, sessionLength, setSessionLength
 
   return (
     <SessionControls id='session-controls'>
-      <SessionLabel id='session-label'>
+      <Label gridArea='label' id='session-label'>
         session
-      </SessionLabel>
-      <SessionButton
+      </Label>
+      <DecrementButton
         id='session-decrement'
         onClick={() => handleClick('session-decrement')}
       >
         <i className="fas fa-minus"></i>
-      </SessionButton>
+      </DecrementButton>
       <SessionLength id="session-length">
         {sessionLength}
       </SessionLength>
-      <SessionButton
+      <IncrementButton
         id='session-increment'
         onClick={() => handleClick('session-increment')}
       >
         <i className="fas fa-plus"></i>
-      </SessionButton>
+      </IncrementButton>
     </SessionControls>
   );
 };

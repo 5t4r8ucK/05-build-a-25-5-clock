@@ -16,21 +16,6 @@ const PlaybackControls = styled(ControlsContainer)`
   }
 `
 
-const PlaybackButton = styled(StyledButton)`
-  &#reset {
-    // Display and Box Model
-    grid-area: reset;
-  }
-  &#start_stop {
-    // Display and Box Model
-    grid-area: start_stop;
-  }
-  &#volume {
-    // Display and Box Model
-    grid-area: volume;
-  }
-`
-
 let newTimer;
 
 const Playback = ({initialClockState, setTimerLabel, setTimerLength, setTimerType, initialControlsState, breakLength, setBreakLength, isTimerPaused, setIsTimerPaused, sessionLength, setSessionLength}) => {
@@ -133,19 +118,22 @@ const Playback = ({initialClockState, setTimerLabel, setTimerLength, setTimerTyp
 
   return (
     <PlaybackControls id='playback-controls'>
-      <PlaybackButton
+      <StyledButton
+        gridArea='start_stop'
         id='start_stop'
         onClick={() => handleClick('start_stop')}
       >
         <i className={playbackIcon}></i>
-      </PlaybackButton>
-      <PlaybackButton
+      </StyledButton>
+      <StyledButton
+        gridArea='reset'
         id='reset'
         onClick={() => handleClick('reset')}
       >
         <i className='fas fa-redo'></i>
-      </PlaybackButton>
-      <PlaybackButton
+      </StyledButton>
+      <StyledButton
+        gridArea='volume'
         id='volume'
         onClick={() => handleClick('volume')}
       >
@@ -156,7 +144,7 @@ const Playback = ({initialClockState, setTimerLabel, setTimerLength, setTimerTyp
           src='./sounds/Daybreak.mp3'
           ref={audio}
         />
-      </PlaybackButton>
+      </StyledButton>
     </PlaybackControls>
   );
 };

@@ -9,6 +9,7 @@ const Label = styled(StyledHeader)`
   text-transform: lowercase;
   // Other
   opacity: 0.5;
+  grid-area: ${props => props.gridArea};
 `;
 
 export default Label;

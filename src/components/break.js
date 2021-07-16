@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import * as variables from './variables.js';
-import { SquareButton } from './styledButton.js';
+import { IncrementButton, DecrementButton } from './styledButton.js';
 import Label from './label.js';
 import Length from './length.js';
 import ControlsContainer from './controlsContainer';
@@ -12,29 +12,6 @@ const BreakControls = styled(ControlsContainer)`
     justify-self: right;
   }
 `;
-
-const BreakLabel = styled(Label)`
-  &#break-label{
-    // Display and Box Model
-    grid-area: label;
-  }
-`
-
-const BreakButton = styled(SquareButton)`
-  // Display and Box Model
-  align-self: center;
-
-  &#break-decrement {
-    // Display and Box Model
-    grid-area: decrement;
-    justify-self: right;
-  }
-  &#break-increment {
-    // Display and Box Model
-    grid-area: increment;
-    justify-self: left;
-  }
-`
 
 const BreakLength = styled(Length)`
   &#break-length {
@@ -69,24 +46,24 @@ const Break = ({breakLength, setBreakLength, isTimerPaused}) => {
 
   return (
     <BreakControls id='break-controls'>
-      <BreakLabel id='break-label'>
+      <Label gridArea='label' id='break-label'>
         break
-      </BreakLabel>
-      <BreakButton
+      </Label>
+      <DecrementButton
         id='break-decrement'
         onClick={() => handleClick('break-decrement')}
       >
         <i className="fas fa-minus"></i>
-      </BreakButton>
+      </DecrementButton>
       <BreakLength id="break-length">
         {breakLength}
       </BreakLength>
-      <BreakButton
+      <IncrementButton
         id='break-increment'
         onClick={() => handleClick('break-increment')}
       >
         <i className="fas fa-plus"></i>
-      </BreakButton>
+      </IncrementButton>
     </BreakControls>
   );
 };

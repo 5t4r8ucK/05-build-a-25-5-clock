@@ -11,6 +11,7 @@ export const StyledButton = styled.button`
   // Other
   cursor: pointer;
   transition: background-color 0.1s ease-out;
+  grid-area: ${props => props.gridArea};
 
   &:hover {
   // Display and Box Model
@@ -27,6 +28,19 @@ export const SquareButton = styled(StyledButton)`
   // Display and Box Model
   width: ${variables.sizes.column_width};
   height: ${variables.sizes.column_width};
+
+  // Display and Box Model
+  align-self: center;
+`
+
+export const IncrementButton = styled(SquareButton)`
+  grid-area: increment;
+  justify-self: left;
+`
+
+export const DecrementButton = styled(SquareButton)`
+  grid-area: decrement;
+  justify-self: right;
 `
 
 export default StyledButton;

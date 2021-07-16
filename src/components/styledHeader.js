@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import * as variables from './variables.js';
 
 const StyledHeader = styled.header`
   // Typography

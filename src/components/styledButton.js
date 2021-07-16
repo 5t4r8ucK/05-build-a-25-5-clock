@@ -8,6 +8,19 @@ export const StyledButton = styled.button`
   // Typography
   font-family: ${variables.fonts.stack.sansSerif};
   color: ${variables.colors.color.white.w_100};
+  // Other
+  cursor: pointer;
+  transition: background-color 0.1s ease-out;
+
+  &:hover {
+  // Display and Box Model
+    background-color: ${variables.colors.color.white.w_20};
+  }
+
+  &:active {
+  // Display and Box Model
+    background-color: ${variables.colors.color.white.w_30};
+  }
 `;
 
 export const SquareButton = styled(StyledButton)`

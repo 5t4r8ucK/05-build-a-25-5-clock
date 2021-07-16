@@ -1,3 +1,4 @@
+import React from 'react';
 import styled from 'styled-components';
 import * as variables from './variables.js';
 import { SquareButton } from './styledButton.js';
@@ -47,18 +48,53 @@ const SessionLength = styled(Length)`
 
 const Session = ({setTimerLength, isTimerPaused, sessionLength, setSessionLength}) => {
 
+  const handleClick = (action) => {
+    let seconds = 0;
+    seconds = seconds < 10 ? '0' + seconds : seconds;
+    switch (action) {
+      case 'session-increment':
+        if (isTimerPaused) {
+          if (sessionLength < 60) {
+            let minutes = sessionLength + 1;
+            minutes = minutes < 10 ? '0' + minutes : minutes;
+            setSessionLength(sessionLength + 1);
+            setTimerLength(minutes + ':' + seconds);
+          }
+        }
+        break;
+      case 'session-decrement':
+        if (isTimerPaused) {
+          if (sessionLength > 1) {
+            let minutes = sessionLength - 1;
+            minutes = minutes < 10 ? '0' + minutes : minutes;
+            setSessionLength(sessionLength - 1);
+            setTimerLength(minutes + ':' + seconds);
+          }
+        }
+        break;
+      default:
+        break;
+    }
+  }
+
   return (
     <SessionControls id='session-controls'>
       <SessionLabel id='session-label'>
-        Session Length
+        session
       </SessionLabel>
-      <SessionButton id='session-decrement'>
+      <SessionButton
+        id='session-decrement'
+        onClick={() => handleClick('session-decrement')}
+      >
         <i className="fas fa-minus"></i>
       </SessionButton>
       <SessionLength id="session-length">
         {sessionLength}
       </SessionLength>
-      <SessionButton id='session-increment'>
+      <SessionButton
+        id='session-increment'
+        onClick={() => handleClick('session-increment')}
+      >
         <i className="fas fa-plus"></i>
       </SessionButton>
     </SessionControls>

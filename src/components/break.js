@@ -46,19 +46,45 @@ const BreakLength = styled(Length)`
 `
 const Break = ({breakLength, setBreakLength, isTimerPaused}) => {
 
-const Break = () => {
+  const handleClick = (action) => {
+    switch (action) {
+      case 'break-increment':
+        if (isTimerPaused) {
+          if (breakLength < 60) {
+            setBreakLength(breakLength + 1);
+          }
+        }
+        break;
+      case 'break-decrement':
+        if (isTimerPaused) {
+          if (breakLength > 1) {
+            setBreakLength(breakLength - 1);
+          }
+        }
+        break;
+      default:
+        break;
+    }
+  }
+
   return (
     <BreakControls id='break-controls'>
       <BreakLabel id='break-label'>
-        Break Length
+        break
       </BreakLabel>
-      <BreakButton id='break-decrement'>
+      <BreakButton
+        id='break-decrement'
+        onClick={() => handleClick('break-decrement')}
+      >
         <i className="fas fa-minus"></i>
       </BreakButton>
       <BreakLength id="break-length">
         {breakLength}
       </BreakLength>
-      <BreakButton id='break-increment'>
+      <BreakButton
+        id='break-increment'
+        onClick={() => handleClick('break-increment')}
+      >
         <i className="fas fa-plus"></i>
       </BreakButton>
     </BreakControls>

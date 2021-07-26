@@ -1,9 +1,8 @@
 import React, {useState} from 'react';
 import styled from 'styled-components';
 import * as variables from './variables.js';
-import Break from './break.js';
 import Playback from './playback.js';
-import Session from './session.js';
+import PhaseControl from './PhaseControl.js';
 import StyledSection from './styledSection.js';
 import {initialControlsState} from './constants';
 
@@ -25,18 +24,51 @@ const Controls = ({setTimerLength, setTimerType}) => {
   const [isTimerPaused, setIsTimerPaused] = useState(initialControlsState.isTimerPaused);
   const [sessionLength, setSessionLength] = useState(initialControlsState.sessionLength);
 
+  const sessionDecrement = () => {
+    if (sessionLength > 1) {
+      let minutes = sessionLength - 1;
+      setSessionLength(minutes);
+      setTimerLength(minutes.toString().padStart(2, '0') + ':00');
+    }
+  };
+
+  const sessionIncrement = () => {
+    if (sessionLength < 60) {
+      let minutes = sessionLength + 1;
+      setSessionLength(minutes);
+      setTimerLength(minutes.toString().padStart(2, '0') + ':00');
+    }
+  };
+
+  const breakDecrement = () => {
+    if (breakLength > 1) {
+      let minutes = breakLength - 1;
+      setBreakLength(minutes);
+    }
+  };
+
+  const breakIncrement = () => {
+    if (breakLength < 60) {
+      let minutes = breakLength + 1;
+      setBreakLength(minutes);
+    }
+  };
+
   return (
     <ControlsSection id='controls'>
-      <Break
-        breakLength = {breakLength}
-        setBreakLength = {setBreakLength}
+      <PhaseControl
         isTimerPaused = {isTimerPaused}
+        length = {breakLength}
+        phaseName='break'
+        decrement={breakDecrement}
+        increment={breakIncrement}
       />
-      <Session
-        setTimerLength = {setTimerLength}
+      <PhaseControl
         isTimerPaused = {isTimerPaused}
-        sessionLength = {sessionLength}
-        setSessionLength = {setSessionLength}
+        length = {sessionLength}
+        phaseName='session'
+        decrement={sessionDecrement}
+        increment={sessionIncrement}
       />
       <Playback
         setTimerLength = {setTimerLength}

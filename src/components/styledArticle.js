@@ -4,9 +4,9 @@ import * as variables from './variables.js'
 const StyledArticle = styled.article`
   // Display and Box Model
   display: grid;
-  height: 100vh;
+  min-height: 100vh;
   padding: ${variables.sizes.column_width};
-  width: 100vw;
+  min-width: 100vw;
 `
 
 export default StyledArticle;

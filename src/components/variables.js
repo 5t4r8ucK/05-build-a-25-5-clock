@@ -1,3 +1,25 @@
+/* Font sizes */
+const minorThird = 1.200;
+const perfectFourth = 1.333;
+const goldenRatio = 1.618;
+const minFontSize = '1rem'; /* 16px */
+const preferredFontSize = 'calc((#{strip-unit($min-font-size)} / #{strip-unit(100vw)}) * 100  * 1vw)';
+const maxFontSize = '0.78125vw'; /* (16px / 2048 * 100) */
+
+const h1 = 6;
+const h2 = 5;
+const h3 = 4;
+const h4 = 3;
+const h5 = 2;
+const h6 = 1;
+const small = 0.5;
+
+const convertToRem = (scale, size) => {
+  return(
+    Math.pow(scale, size)
+  )
+}
+
 // Fonts
 export const fonts = {
   'stack': {
@@ -7,13 +29,13 @@ export const fonts = {
     'icons': 'Font Awesome 5 Free',
   },
   'sizes': {
-    'h1': '11.089rem',
-    'h2': '6.854rem',
-    'h3': '4.236rem',
-    'h4': '2.618rem',
-    'h5': '1.618rem',
-    'h6': '1rem',
-    'small': '0.618rem',
+    'h1': `clamp(${convertToRem(minorThird, h1) + 'rem'}, ${convertToRem(perfectFourth, h1) + 1 + 'vw'}, ${convertToRem(goldenRatio, h1) + 'rem'})`,
+    'h2': `clamp(${convertToRem(minorThird, h2) + 'rem'}, ${convertToRem(perfectFourth, h2) + 1 + 'vw'}, ${convertToRem(goldenRatio, h2) + 'rem'})`,
+    'h3': `clamp(${convertToRem(minorThird, h3) + 'rem'}, ${convertToRem(perfectFourth, h3) + 1 + 'vw'}, ${convertToRem(goldenRatio, h3) + 'rem'})`,
+    'h4': `clamp(${convertToRem(minorThird, h4) + 'rem'}, ${convertToRem(perfectFourth, h4) + 1 + 'vw'}, ${convertToRem(goldenRatio, h4) + 'rem'})`,
+    'h5': `clamp(${convertToRem(minorThird, h5) + 'rem'}, ${convertToRem(perfectFourth, h5) + 1 + 'vw'}, ${convertToRem(goldenRatio, h5) + 'rem'})`,
+    'h6': `clamp(${convertToRem(minorThird, h6) + 'rem'}, ${convertToRem(perfectFourth, h6) + 1 + 'vw'}, ${convertToRem(goldenRatio, h6) + 'rem'})`,
+    'small': `clamp(${convertToRem(minorThird, small) + 'rem'}, ${convertToRem(perfectFourth, small) + 1 + 'vw'}, ${convertToRem(goldenRatio, small) + 'rem'})`,
   },
 }
 

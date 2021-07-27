@@ -7,15 +7,13 @@ import StyledSection from './styledSection.js';
 import { initialControlsState, initialClockState, TYPE_SESSION, TYPE_BREAK } from './constants';
 
 const ControlsSection = styled(StyledSection)`
-  &#controls {
-    // Display and Box Model
-    display: grid;
-    gap: ${variables.sizes.gapWidth};
-    grid-template-areas:
-      'break-controls session-controls'
-      'playback-controls playback-controls';
-    grid-template-columns: auto auto;
-  }
+  // Display and Box Model
+  display: grid;
+  gap: ${variables.sizes.gapWidth};
+  grid-template-areas:
+    'break-controls session-controls'
+    'playback-controls playback-controls';
+  grid-template-columns: auto auto;
 `;
 
 const Controls = ({timerType, setTimerType, setTimeLeft, timeLeft}) => {

@@ -8,27 +8,26 @@ import Timer from './timer';
 import {initialClockState} from './constants';
 
 const ClockArticle = styled(StyledArticle)`
-  &#clock {
-    // Position
-    // Display and Box Model
-    background: linear-gradient(
-      0deg,
-      ${variables.colors.color.turquoise},
-      ${variables.colors.color.green},
-      ${variables.colors.color.orange},
-      ${variables.colors.color.red}
-    );
-    background-size: 100% 400%;
-    grid-template-areas:
-      'title'
-      'timer'
-      'controls';
-    grid-template-rows: auto 1fr auto;
-    // Typography
-    color: ${variables.colors.color.white.w_100};
-    // Other
-    animation-fill-mode: forwards;
-  }
+  // Position
+  // Display and Box Model
+  background: linear-gradient(
+    0deg,
+    ${variables.colors.color.turquoise},
+    ${variables.colors.color.green},
+    ${variables.colors.color.orange},
+    ${variables.colors.color.red}
+  );
+  background-size: 100% 400%;
+  grid-template-areas:
+    'title'
+    'timer'
+    'controls';
+  grid-template-rows: auto 1fr auto;
+  // Typography
+  color: ${variables.colors.color.white.w_100};
+  // Other
+  animation-fill-mode: forwards;
+
   &.session {
     // Display and Box Model
     animation-name: transitionToSession;

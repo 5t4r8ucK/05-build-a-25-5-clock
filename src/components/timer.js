@@ -6,20 +6,16 @@ import StyledSection from './styledSection.js';
 import { TYPE_BREAK } from './constants.js';
 
 const TimerSection = styled(StyledSection)`
-  &#timer {
-    // Display and Box Model
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    text-align: center;
-  }
+  // Display and Box Model
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
 `;
 
 const TimerLength = styled(Length)`
-  &#time-left {
-    //Typography
-    font-size: ${variables.fonts.sizes.h1};
-  }
+  //Typography
+  font-size: ${variables.fonts.sizes.h1};
 `
 
 const Timer = ({timeLeft, timerType}) => {

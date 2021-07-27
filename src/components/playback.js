@@ -84,7 +84,7 @@ const Playback = ({timerType, setTimerType, breakLength, setBreakLength, isTimer
         id='volume'
         onClick={() => handleClick('volume')}
       >
-        <i className='fas fa-volume-up'></i>
+        <i className="fas fa-volume-mute"></i>
         <Audio
           id='beep'
           preload="auto"

@@ -10,8 +10,7 @@ const PlaybackControls = styled(ControlsContainer)`
   // Display and Box Model
   gap: ${variables.sizes.gapWidth};
   grid-area: playback-controls;
-  grid-template-areas:
-    'start_stop reset volume';
+  grid-template-areas: 'start_stop reset volume';
   flex-direction: row;
 `
 const Playback = ({timerType, setTimerType, breakLength, setBreakLength, isTimerPaused, setIsTimerPaused, sessionLength, setSessionLength, timeLeft, setTimeLeft}) => {

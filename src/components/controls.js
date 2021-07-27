@@ -14,6 +14,7 @@ const ControlsSection = styled(StyledSection)`
     'break-controls session-controls'
     'playback-controls playback-controls';
   grid-template-columns: auto auto;
+  grid-template-rows: auto auto;
 `;
 
 const Controls = ({timerType, setTimerType, setTimeLeft, timeLeft}) => {

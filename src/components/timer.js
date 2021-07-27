@@ -9,6 +9,7 @@ const TimerSection = styled(StyledSection)`
   // Display and Box Model
   display: flex;
   flex-direction: column;
+  height: auto;
   justify-content: center;
   text-align: center;
 `;

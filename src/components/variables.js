@@ -14,12 +14,6 @@ const h5 = 2;
 const h6 = 1;
 const small = 0.5;
 
-const convertToRem = (scale, size) => {
-  return(
-    Math.pow(scale, size)
-  )
-}
-
 // Fonts
 export const fonts = {
   'stack': {
@@ -29,13 +23,13 @@ export const fonts = {
     'icons': 'Font Awesome 5 Free',
   },
   'sizes': {
-    'h1': `clamp(${convertToRem(minorThird, h1) + 'rem'}, ${convertToRem(perfectFourth, h1) + 1 + 'vw'}, ${convertToRem(goldenRatio, h1) + 'rem'})`,
-    'h2': `clamp(${convertToRem(minorThird, h2) + 'rem'}, ${convertToRem(perfectFourth, h2) + 1 + 'vw'}, ${convertToRem(goldenRatio, h2) + 'rem'})`,
-    'h3': `clamp(${convertToRem(minorThird, h3) + 'rem'}, ${convertToRem(perfectFourth, h3) + 1 + 'vw'}, ${convertToRem(goldenRatio, h3) + 'rem'})`,
-    'h4': `clamp(${convertToRem(minorThird, h4) + 'rem'}, ${convertToRem(perfectFourth, h4) + 1 + 'vw'}, ${convertToRem(goldenRatio, h4) + 'rem'})`,
-    'h5': `clamp(${convertToRem(minorThird, h5) + 'rem'}, ${convertToRem(perfectFourth, h5) + 1 + 'vw'}, ${convertToRem(goldenRatio, h5) + 'rem'})`,
-    'h6': `clamp(${convertToRem(minorThird, h6) + 'rem'}, ${convertToRem(perfectFourth, h6) + 1 + 'vw'}, ${convertToRem(goldenRatio, h6) + 'rem'})`,
-    'small': `clamp(${convertToRem(minorThird, small) + 'rem'}, ${convertToRem(perfectFourth, small) + 1 + 'vw'}, ${convertToRem(goldenRatio, small) + 'rem'})`,
+    'h1': `clamp(${Math.pow(minorThird, h1) + 'rem'}, ${Math.pow(perfectFourth, h1) + 1 + 'vw'}, ${Math.pow(goldenRatio, h1) + 'rem'})`,
+    'h2': `clamp(${Math.pow(minorThird, h2) + 'rem'}, ${Math.pow(perfectFourth, h2) + 1 + 'vw'}, ${Math.pow(goldenRatio, h2) + 'rem'})`,
+    'h3': `clamp(${Math.pow(minorThird, h3) + 'rem'}, ${Math.pow(perfectFourth, h3) + 1 + 'vw'}, ${Math.pow(goldenRatio, h3) + 'rem'})`,
+    'h4': `clamp(${Math.pow(minorThird, h4) + 'rem'}, ${Math.pow(perfectFourth, h4) + 1 + 'vw'}, ${Math.pow(goldenRatio, h4) + 'rem'})`,
+    'h5': `clamp(${Math.pow(minorThird, h5) + 'rem'}, ${Math.pow(perfectFourth, h5) + 1 + 'vw'}, ${Math.pow(goldenRatio, h5) + 'rem'})`,
+    'h6': `clamp(${Math.pow(minorThird, h6) + 'rem'}, ${Math.pow(perfectFourth, h6) + 1 + 'vw'}, ${Math.pow(goldenRatio, h6) + 'rem'})`,
+    'small': `clamp(${Math.pow(minorThird, small) + 'rem'}, ${Math.pow(perfectFourth, small) + 1 + 'vw'}, ${Math.pow(goldenRatio, small) + 'rem'})`,
   },
 }
 

@@ -58,8 +58,8 @@ const ClockArticle = styled(StyledArticle)`
 `;
 
 const Clock = () => {
-  const [timerLength, setTimerLength] = useState(initialClockState.length);
   const [timerType, setTimerType] = useState(initialClockState.type);
+  const [timeLeft, setTimeLeft] = useState(initialClockState.sessionLength * 60);
 
   return (
     <ClockArticle id='clock' className={timerType}>
@@ -67,13 +67,14 @@ const Clock = () => {
         Pomodoro Timer
       </Title>
       <Timer
-        timerLength = {timerLength}
-        timerType = {timerType}
+        timeLeft={timeLeft}
+        timerType={timerType}
       />
       <Controls
-        initialClockState = {initialClockState}
-        setTimerLength = {setTimerLength}
-        setTimerType = {setTimerType}
+        timeLeft={timeLeft}
+        setTimeLeft={setTimeLeft}
+        timerType={timerType}
+        setTimerType={setTimerType}
       />
     </ClockArticle>
   );

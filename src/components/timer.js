@@ -22,14 +22,18 @@ const TimerLength = styled(Length)`
   }
 `
 
-const Timer = ({timerLength, timerType}) => {
+const Timer = ({timeLeft, timerType}) => {
+
+  const mins = Math.floor(timeLeft / 60).toString().padStart(2, '0');
+  const seconds = (timeLeft % 60).toString().padStart(2, '0');
+
   return (
     <TimerSection id='timer'>
       <Label id='timer-label'>
         {timerType === TYPE_BREAK ? 'currently on a break' : 'currently in a session'}
       </Label>
       <TimerLength id='time-left'>
-        {timerLength}
+        {`${mins}:${seconds}`}
       </TimerLength>
     </TimerSection>
   );

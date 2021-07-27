@@ -1,10 +1,10 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import * as variables from './variables.js';
 import Playback from './playback.js';
 import PhaseControl from './PhaseControl.js';
 import StyledSection from './styledSection.js';
-import {initialControlsState} from './constants';
+import { initialControlsState, initialClockState, TYPE_SESSION, TYPE_BREAK } from './constants';
 
 const ControlsSection = styled(StyledSection)`
   &#controls {
@@ -18,17 +18,19 @@ const ControlsSection = styled(StyledSection)`
   }
 `;
 
-const Controls = ({setTimerLength, setTimerType}) => {
+const Controls = ({timerType, setTimerType, setTimeLeft, timeLeft}) => {
 
   const [breakLength, setBreakLength] = useState(initialControlsState.breakLength);
   const [isTimerPaused, setIsTimerPaused] = useState(initialControlsState.isTimerPaused);
-  const [sessionLength, setSessionLength] = useState(initialControlsState.sessionLength);
+  const [sessionLength, setSessionLength] = useState(initialClockState.sessionLength);
 
   const sessionDecrement = () => {
     if (sessionLength > 1) {
       let minutes = sessionLength - 1;
       setSessionLength(minutes);
-      setTimerLength(minutes.toString().padStart(2, '0') + ':00');
+      if (timerType === TYPE_SESSION || timerType === '') {
+        setTimeLeft(minutes * 60);
+      }
     }
   };
 
@@ -36,7 +38,9 @@ const Controls = ({setTimerLength, setTimerType}) => {
     if (sessionLength < 60) {
       let minutes = sessionLength + 1;
       setSessionLength(minutes);
-      setTimerLength(minutes.toString().padStart(2, '0') + ':00');
+      if (timerType === TYPE_SESSION || timerType === '') {
+        setTimeLeft(minutes * 60);
+      }
     }
   };
 
@@ -44,6 +48,9 @@ const Controls = ({setTimerLength, setTimerType}) => {
     if (breakLength > 1) {
       let minutes = breakLength - 1;
       setBreakLength(minutes);
+      if (timerType === TYPE_BREAK) {
+        setTimeLeft(minutes * 60);
+      }
     }
   };
 
@@ -51,34 +58,39 @@ const Controls = ({setTimerLength, setTimerType}) => {
     if (breakLength < 60) {
       let minutes = breakLength + 1;
       setBreakLength(minutes);
+      if (timerType === TYPE_BREAK) {
+        setTimeLeft(minutes * 60);
+      }
     }
   };
 
   return (
     <ControlsSection id='controls'>
       <PhaseControl
-        isTimerPaused = {isTimerPaused}
-        length = {breakLength}
+        isTimerPaused={isTimerPaused}
+        length={breakLength}
         phaseName='break'
         decrement={breakDecrement}
         increment={breakIncrement}
       />
       <PhaseControl
-        isTimerPaused = {isTimerPaused}
-        length = {sessionLength}
+        isTimerPaused={isTimerPaused}
+        length={sessionLength}
         phaseName='session'
         decrement={sessionDecrement}
         increment={sessionIncrement}
       />
       <Playback
-        setTimerLength = {setTimerLength}
-        setTimerType = {setTimerType}
-        breakLength = {breakLength}
-        setBreakLength = {setBreakLength}
-        isTimerPaused = {isTimerPaused}
-        setIsTimerPaused = {setIsTimerPaused}
-        sessionLength = {sessionLength}
-        setSessionLength = {setSessionLength}
+        timerType={timerType}
+        setTimerType={setTimerType}
+        breakLength={breakLength}
+        setBreakLength={setBreakLength}
+        isTimerPaused={isTimerPaused}
+        setIsTimerPaused={setIsTimerPaused}
+        sessionLength={sessionLength}
+        setSessionLength={setSessionLength}
+        setTimeLeft={setTimeLeft}
+        timeLeft={timeLeft}
       />
     </ControlsSection>
   );

@@ -1,11 +1,10 @@
-import React, {useRef} from 'react';
+import React, { useRef, useEffect } from 'react';
 import styled from 'styled-components';
 import * as variables from './variables.js';
 import StyledButton from './styledButton.js';
 import ControlsContainer from './controlsContainer';
 import Audio from './audio';
 import { initialControlsState, initialClockState, TYPE_SESSION, TYPE_BREAK } from './constants';
-
 
 const PlaybackControls = styled(ControlsContainer)`
   &#playback-controls {
@@ -17,88 +16,46 @@ const PlaybackControls = styled(ControlsContainer)`
     flex-direction: row;
   }
 `
-
-let newTimer;
-
-const Playback = ({setTimerLength, setTimerType, breakLength, setBreakLength, isTimerPaused, setIsTimerPaused, sessionLength, setSessionLength}) => {
+const Playback = ({timerType, setTimerType, breakLength, setBreakLength, isTimerPaused, setIsTimerPaused, sessionLength, setSessionLength, timeLeft, setTimeLeft}) => {
 
   let audio = useRef(null);
 
-  const startTimer = (durationOne, durationTwo) => {
-    durationOne = durationOne * 60; // total secs = # of mins * 60 secs
-    durationTwo = durationTwo * 60; // total secs = # of mins * 60 secs
-
-    let duration = durationOne;
-    let minutes;
-    let seconds;
-    let interval;
-    let isInSession = true;
-    let timer = {};
-
-    timer.resume = () => {
-      interval = setInterval(() => {
-        duration = duration - 1;
-        minutes = parseInt(duration / 60, 10);
-        seconds = parseInt(duration % 60, 10);
-        minutes = minutes < 10 ? '0' + minutes : minutes;
-        seconds = seconds < 10 ? '0' + seconds : seconds;
-        if (duration <= 0) {
-          isInSession = !isInSession;
-          if (isInSession) {
-            duration = durationOne + 1; // reset to session timer and 1 second so that the timer starts at the full duration
-
+  useEffect(() => {
+    if (!isTimerPaused) {
+      const timer = setInterval(() => {
+        let newTimeLeft = timeLeft - 1;
+        if (newTimeLeft === 0) {
+          if (timerType !== TYPE_BREAK) {
+            audio.current.play(); // play audio at 00:00
+          }
+        } else if (newTimeLeft === -1) {
+          if (timerType === TYPE_BREAK) {
             setTimerType(TYPE_SESSION);
+            newTimeLeft = sessionLength * 60;
           } else {
-            duration = durationTwo + 1; // reset to session timer and 1 second so that the timer starts at the full duration
-
             setTimerType(TYPE_BREAK);
-            audio.current.play();
+            newTimeLeft = breakLength * 60;
           }
         }
-        const display = minutes + ':' + seconds; // concat mins and secs to '00:00' format
-        setTimerLength(display);
+        setTimeLeft(newTimeLeft);
       }, 1000);
+      return () => clearInterval(timer);
     }
-    timer.pause = () => {
-      clearInterval(interval);
-    }
-    return timer;
-  }
-
-  const stopTimer = (timer) => {
-    timer.pause();
-  }
-
-  const resumeTimer = (timer) => {
-    timer.resume();
-  }
+  });
 
   const handleClick = (action) => {
     switch (action) {
       case 'reset':
-        if (newTimer !== undefined) {
-          stopTimer(newTimer);
-        }
-        newTimer = undefined;
         setIsTimerPaused(initialControlsState.isTimerPaused);
         setBreakLength(initialControlsState.breakLength);
-        setSessionLength(initialControlsState.sessionLength);
-        setTimerLength(initialClockState.length);
+        setSessionLength(initialClockState.sessionLength);
         setTimerType(initialClockState.type);
+        setTimeLeft(initialClockState.sessionLength * 60);
         audio.current.pause();
         audio.current.currentTime = 0;
         break;
       case 'start_stop':
-        if (newTimer === undefined) {
-          newTimer = startTimer(sessionLength, breakLength);
-        }
-        if (isTimerPaused) {
-          resumeTimer(newTimer);
-          setIsTimerPaused(false);
-        } else {
-          stopTimer(newTimer);
-          setIsTimerPaused(true);
-        }
+        setIsTimerPaused(!isTimerPaused);
         break;
       case 'volume':
         audio.current.pause();

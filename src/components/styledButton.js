@@ -14,6 +14,7 @@ export const StyledButton = styled.button`
   height: ${variables.sizes.column_width};
   // Typography
   font-family: ${variables.fonts.stack.sansSerif};
+  font-size: ${variables.fonts.sizes.small};
   color: ${variables.colors.color.white.w_100};
   // Other
   cursor: pointer;

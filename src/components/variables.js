@@ -1,7 +1,7 @@
 /* Font sizes */
-const minorThird = 1.200;
 const perfectFourth = 1.333;
-const goldenRatio = 1.618;
+const augmentedFourth = 1.414;
+const perfectFifth = 1.500;
 const minFontSize = '1rem'; /* 16px */
 const preferredFontSize = 'calc((#{strip-unit($min-font-size)} / #{strip-unit(100vw)}) * 100  * 1vw)';
 const maxFontSize = '0.78125vw'; /* (16px / 2048 * 100) */
@@ -23,13 +23,13 @@ export const fonts = {
     'icons': 'Font Awesome 5 Free',
   },
   'sizes': {
-    'h1': `clamp(${Math.pow(minorThird, h1) + 'rem'}, ${Math.pow(perfectFourth, h1) + 1 + 'vw'}, ${Math.pow(goldenRatio, h1) + 'rem'})`,
-    'h2': `clamp(${Math.pow(minorThird, h2) + 'rem'}, ${Math.pow(perfectFourth, h2) + 1 + 'vw'}, ${Math.pow(goldenRatio, h2) + 'rem'})`,
-    'h3': `clamp(${Math.pow(minorThird, h3) + 'rem'}, ${Math.pow(perfectFourth, h3) + 1 + 'vw'}, ${Math.pow(goldenRatio, h3) + 'rem'})`,
-    'h4': `clamp(${Math.pow(minorThird, h4) + 'rem'}, ${Math.pow(perfectFourth, h4) + 1 + 'vw'}, ${Math.pow(goldenRatio, h4) + 'rem'})`,
-    'h5': `clamp(${Math.pow(minorThird, h5) + 'rem'}, ${Math.pow(perfectFourth, h5) + 1 + 'vw'}, ${Math.pow(goldenRatio, h5) + 'rem'})`,
-    'h6': `clamp(${Math.pow(minorThird, h6) + 'rem'}, ${Math.pow(perfectFourth, h6) + 1 + 'vw'}, ${Math.pow(goldenRatio, h6) + 'rem'})`,
-    'small': `clamp(${Math.pow(minorThird, small) + 'rem'}, ${Math.pow(perfectFourth, small) + 1 + 'vw'}, ${Math.pow(goldenRatio, small) + 'rem'})`,
+    'h1': `clamp(${Math.pow(perfectFourth, h1) + 'rem'}, ${Math.pow(augmentedFourth, h1)  + 'vw'}, ${Math.pow(perfectFifth, h1) + 'rem'})`,
+    'h2': `clamp(${Math.pow(perfectFourth, h2) + 'rem'}, ${Math.pow(augmentedFourth, h2)  + 'vw'}, ${Math.pow(perfectFifth, h2) + 'rem'})`,
+    'h3': `clamp(${Math.pow(perfectFourth, h3) + 'rem'}, ${Math.pow(augmentedFourth, h3)  + 'vw'}, ${Math.pow(perfectFifth, h3) + 'rem'})`,
+    'h4': `clamp(${Math.pow(perfectFourth, h4) + 'rem'}, ${Math.pow(augmentedFourth, h4)  + 'vw'}, ${Math.pow(perfectFifth, h4) + 'rem'})`,
+    'h5': `clamp(${Math.pow(perfectFourth, h5) + 'rem'}, ${Math.pow(augmentedFourth, h5)  + 'vw'}, ${Math.pow(perfectFifth, h5) + 'rem'})`,
+    'h6': `clamp(${Math.pow(perfectFourth, h6) + 'rem'}, ${Math.pow(augmentedFourth, h6)  + 'vw'}, ${Math.pow(perfectFifth, h6) + 'rem'})`,
+    'small': `clamp(${Math.pow(perfectFourth, small) + 'rem'}, ${Math.pow(augmentedFourth, small) + 'vw'}, ${Math.pow(perfectFifth, small) + 'rem'})`,
   },
 }
 

@@ -4,12 +4,12 @@ import * as variables from './variables.js';
 export const StyledButton = styled.button`
   // Display and Box Model
   background: transparent;
-  background-blend-mode: overlay;
+  // background-blend-mode: overlay;
   box-shadow:
-    5px 5px 10px 2px rgba(255, 255, 255, 0.05) inset,
-    -5px -5px 10px 2px  rgba(0, 0, 0, 0.05) inset,
-    5px 5px 10px 0 rgba(0, 0, 0, 0.25),
-    -5px -5px 10px 0 rgba(255, 255, 255, 0.2);
+    5px 5px 10px 2px ${variables.colors.color.white.w_5} inset,
+    -5px -5px 10px 2px ${variables.colors.color.black.b_5} inset,
+    5px 5px 10px 0 ${variables.colors.color.black.b_2},
+    -5px -5px 10px 0 ${variables.colors.color.white.w_2};
   border-radius: 10px;
   height: ${variables.sizes.column_width};
   // Typography
@@ -24,17 +24,17 @@ export const StyledButton = styled.button`
   &:hover {
   // Display and Box Model
   box-shadow:
-    5px 5px 10px 2px rgba(0, 0, 0, 0.05) inset,
-    -5px -5px 10px 2px  rgba(255, 255, 255, 0.05) inset,
-    5px 5px 10px 0 rgba(0, 0, 0, 0.25),
-    -5px -5px 10px 0 rgba(255, 255, 255, 0.2);
+    5px 5px 10px 2px ${variables.colors.color.black.b_5} inset,
+    -5px -5px 10px 2px ${variables.colors.color.white.w_5} inset,
+    5px 5px 10px 0 ${variables.colors.color.black.b_2},
+    -5px -5px 10px 0 ${variables.colors.color.white.w_2};
   }
 
   &:active {
   // Display and Box Model
   box-shadow:
-    inset 5px 5px 10px 0 rgba(0, 0, 0, 0.25),
-    inset -5px -5px 10px 0 rgba(255, 255, 255, 0.2);
+    5px 5px 10px 0 ${variables.colors.color.black.b_2} inset,
+    -5px -5px 10px 0 ${variables.colors.color.white.w_2} inset;
   }
 `;
 

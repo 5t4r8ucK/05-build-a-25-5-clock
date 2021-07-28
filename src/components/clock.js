@@ -9,13 +9,14 @@ import {initialClockState} from './constants';
 
 const ClockArticle = styled(StyledArticle)`
   // Position
+  position: relative;
   // Display and Box Model
   background: linear-gradient(
     0deg,
-    ${variables.colors.color.turquoise},
     ${variables.colors.color.green},
-    ${variables.colors.color.orange},
-    ${variables.colors.color.red}
+    ${variables.colors.color.turquoise},
+    ${variables.colors.color.red},
+    ${variables.colors.color.orange}
   );
   background-size: 100% 400%;
   grid-template-areas:
